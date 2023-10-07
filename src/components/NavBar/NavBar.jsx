@@ -8,7 +8,7 @@ export default function NavBar({user, setUser}) {
         setUser(null)
     }
     return (
-        <nav>s
+        <nav>
             <Link to="/orders">Order History</Link>
             &nbsp; | &nbsp;
             <Link to="/orders/new">New Order</Link>
