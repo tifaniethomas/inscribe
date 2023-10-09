@@ -5,7 +5,7 @@ export default function NewTextBlock({ setNewTextBlock }) {
     
     return (
     <> 
-        <h1>Write New Text Block</h1>
+        <h1>New Text Block</h1>
         <TextBlockForm setNewTextBlock={ setNewTextBlock }/>
     </>
     )
