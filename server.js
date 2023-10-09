@@ -18,6 +18,7 @@ app.use(require('./config/checkToken'))
 
 // <---------------API's or OTHER ROUTES GO HERE--------------->
 app.use('/api/users', require('./routes/api/users'))
+app.use('/api/textBlocks', require('./routes/api/textBlocks'))
 
 // <----------------------------------------------------------->
 
