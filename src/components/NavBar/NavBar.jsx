@@ -9,9 +9,11 @@ export default function NavBar({user, setUser}) {
     }
     return (
         <nav>
-            <Link to="/orders">Order History</Link>
+            <Link to="/">Home</Link>
             &nbsp; | &nbsp;
-            <Link to="/orders/new">New Order</Link>
+            <Link to="/textBlocks">All Text Blocks</Link>
+            &nbsp; | &nbsp;
+            <Link to="/textBlocks/new">New Text Block</Link>
             &nbsp; &nbsp;
             <span>Welome, {user.name} </span>
             &nbsp; &nbsp;

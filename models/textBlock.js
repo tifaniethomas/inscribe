@@ -8,4 +8,4 @@ const textBlockSchema = new Schema ({
 }, {timestamps: true})
 
 
-module.exports = mongoose.model('Note', noteSchema)
+module.exports = mongoose.model('TextBlock', textBlockSchema)
