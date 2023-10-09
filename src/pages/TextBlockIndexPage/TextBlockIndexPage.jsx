@@ -4,14 +4,14 @@ import { useEffect } from "react"
 
 export default function TextBlockIndexPage({ textBlocks, setTextBlocks }) {
     
-    useEffect(function () {
+    useEffect(function (setTextBlocks) {
         (async function() {
-            const allTextBlocks = await textBlocksAPIsAPI.getAll()
+            const allTextBlocks = await textBlocksAPI.getTextBlocks()
             setTextBlocks([...allTextBlocks])
         })()
     }, [])
 
-    const textBlocksIndex = textBlocks.map((textBlock) => <TextCard textBlock={textBlock} />)
+    const textBlocksIndex = [...textBlocks]
     
     return(
         <>
