@@ -1,17 +1,19 @@
 import TextCard from "../../components/TextCard/TextCard";
 import * as textBlocksAPI from "../../utilities/textBlocks-api"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
-export default function TextBlockIndexPage({ textBlocks, setTextBlocks }) {
-    
-    useEffect(function (setTextBlocks) {
+export default function TextBlockIndexPage() {
+
+    const [textBlocks, setTextBlocks] = useState([])
+
+    useEffect(function () {
         (async function() {
             const allTextBlocks = await textBlocksAPI.getTextBlocks()
-            setTextBlocks([...allTextBlocks])
+            setTextBlocks(allTextBlocks)
         })()
     }, [])
 
-    const textBlocksIndex = [...textBlocks]
+    const textBlocksIndex = textBlocks.map((textBlock, idx) => <TextCard textBlock={ textBlock } textBlocks={ textBlocks } setTextBlocks={ setTextBlocks } key={ idx } idx={ idx } />)
     
     return(
         <>

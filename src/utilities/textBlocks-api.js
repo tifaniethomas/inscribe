@@ -9,3 +9,7 @@ export function getTextBlocks() {
 export function createTextBlock(textBlock) {
     return sendRequest(`${BASE_URL}/create`, "POST", textBlock)
 }
+
+export function deleteTextBlock(textBlockId) {
+    return sendRequest(`${BASE_URL}/${textBlockId}`, "DELETE")
+}

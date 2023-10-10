@@ -24,7 +24,7 @@ export default function TextBlockForm({ setTextBlock }) {
         setNewTextBlock(updateTextBlock);
     }
     return (
-        <div className="form-container">
+        <div className="TextBlockForm">
           <form autoComplete="off" onSubmit={handleSubmit}>
             <textarea type="text" name="text" aria-label="Start writing here" onChange={handleChange} required value={newTextBlock.text} />
             <button type="submit">Add Text Block</button>

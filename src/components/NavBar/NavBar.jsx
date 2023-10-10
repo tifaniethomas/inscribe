@@ -1,3 +1,4 @@
+import './NavBar.css';
 import { Link } from "react-router-dom"
 import * as userService from '../../utilities/users-service'
 
@@ -8,7 +9,7 @@ export default function NavBar({user, setUser}) {
         setUser(null)
     }
     return (
-        <nav>
+        <nav className='NavBar'>
             <Link to="/">Home</Link>
             &nbsp; | &nbsp;
             <Link to="/textBlocks">All Text Blocks</Link>

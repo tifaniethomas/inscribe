@@ -4,6 +4,7 @@ const textBlocksCtrl = require('../../controller/api/textBlocks')
 const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
 router.get('/', ensureLoggedIn, textBlocksCtrl.index)
-router.post('/create', ensureLoggedIn, textBlocksCtrl.create)
+router.post('/', ensureLoggedIn, textBlocksCtrl.create)
+router.delete('/:id', ensureLoggedIn, textBlocksCtrl.delete)
 
 module.exports = router
