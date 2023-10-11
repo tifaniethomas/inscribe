@@ -27,8 +27,7 @@ export default function TextBlockForm() {
     return (
         <div className="TextBlockForm">
           <form autoComplete="off" onSubmit={handleSubmit}>
-            <input type="text" name="header" placeholder="Header or Outline Point Here" aria-label="Header or outline point" onChange={handleChange} required value={ newTextBlock.header } />
-            <textarea type="text" name="text" placeholder="Click here to start writing" aria-label="Start writing here" onChange={handleChange} required value={ newTextBlock.text } />
+            <textarea type="text" name="text" aria-label="Start writing here" onChange={handleChange} required value={ newTextBlock.text } />
             <button type="submit">Add Text Block</button>
           </form>
         </div>

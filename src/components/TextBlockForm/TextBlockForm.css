@@ -3,24 +3,12 @@
     flex-direction: column; 
 }
 
-.TextBlockForm input {
-  width: 100vmin;
-  height: 5vmin;
-  padding: 12px 20px;
-  border: 2px solid #DE9A7C;
-  border-radius: 4px 4px 0 0;
-  background-color: #EBE3C1;
-  font-size: 12px;
-  resize: none;
-  margin: 0 auto;
-}
-
 .TextBlockForm textarea {
     width: 100vmin;
     height: 50vmin;
     padding: 12px 20px;
     border: 2px solid #DE9A7C;
-    border-radius: 0 0 4px 4px;
+    border-radius: 4px;
     background-color: #EBE3C1;
     font-size: 12px;
     resize: none;

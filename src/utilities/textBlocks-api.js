@@ -11,5 +11,5 @@ export function createTextBlock(textBlock) {
 }
 
 export function deleteTextBlock(textBlockId) {
-    return sendRequest(BASE_URL/`${textBlockId}`, "DELETE")
+    return sendRequest(`${BASE_URL}/${textBlockId}`, "DELETE")
 }
