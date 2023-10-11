@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as textBlocksAPI from "../../utilities/textBlocks-api"
+import './TextBlockForm.css';
 
-export default function TextBlockForm({ setTextBlock }) {
+export default function TextBlockForm() {
   const [newTextBlock, setNewTextBlock] = useState("")
   const navigate = useNavigate()
 
@@ -13,7 +14,7 @@ export default function TextBlockForm({ setTextBlock }) {
         try {
             textBlocksAPI.createTextBlock(newTextBlock)
             setNewTextBlock({text: ''});
-            navigate('/')
+            navigate('/textBlocks')
         }   catch (err) {
             console.log(err)
         }
@@ -26,7 +27,8 @@ export default function TextBlockForm({ setTextBlock }) {
     return (
         <div className="TextBlockForm">
           <form autoComplete="off" onSubmit={handleSubmit}>
-            <textarea type="text" name="text" aria-label="Start writing here" onChange={handleChange} required value={newTextBlock.text} />
+            <input type="text" name="header" placeholder="Header or Outline Point Here" aria-label="Header or outline point" onChange={handleChange} required value={ newTextBlock.header } />
+            <textarea type="text" name="text" placeholder="Click here to start writing" aria-label="Start writing here" onChange={handleChange} required value={ newTextBlock.text } />
             <button type="submit">Add Text Block</button>
           </form>
         </div>

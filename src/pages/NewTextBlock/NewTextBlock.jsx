@@ -1,12 +1,13 @@
 // import { useState } from "react";
+import './NewTextBlock.css';
 import TextBlockForm from "../../components/TextBlockForm/TextBlockForm";
 
-export default function NewTextBlock({ setNewTextBlock }) {
+export default function NewTextBlock() {
     
     return (
     <> 
-        <h1>New Text Block</h1>
-        <TextBlockForm setNewTextBlock={ setNewTextBlock }/>
+        <div className='NewTextBlock'><h1>New Text Block</h1></div>
+        <TextBlockForm />
     </>
     )
 }

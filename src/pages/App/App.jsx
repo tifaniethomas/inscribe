@@ -1,7 +1,7 @@
+import './App.css';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
-import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import NewTextBlock from '../NewTextBlock/NewTextBlock';
 import TextBlockIndexPage from '../TextBlockIndexPage/TextBlockIndexPage'

@@ -1,4 +1,4 @@
-const TextBlock = require('../../models/textBlock.js')
+const TextBlock = require('../../models/textBlock')
 
 module.exports = {
     index,
@@ -11,7 +11,7 @@ module.exports = {
 async function index (req, res) {
     try {
         const textBlocks = await TextBlock.find({ user: req.user._id})
-
+        console.log("hitting")
         res.json(textBlocks)
     } catch (err) {
         console.log(err)
@@ -22,8 +22,8 @@ async function create(req, res) {
     try {
         req.body.user = req.user._id
         
-        const note = await TextBlock.create(req.body)
-
+        const textBlock = await TextBlock.create(req.body)
+        console.log(textBlock)
         res.json("")
     } catch (err) {
         console.log(err)

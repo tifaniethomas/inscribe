@@ -1,0 +1,13 @@
+.NavBar {
+   display: flex;
+   flex-direction: row; 
+   color: #EBE3C1;
+}
+
+.NavBar #login {
+    margin-left: auto;
+}
+
+.NavBar a {
+    color: #DE9A7C;
+}

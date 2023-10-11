@@ -1,0 +1,21 @@
+.TextCard {
+    display: flex;
+    flex-direction: row; 
+    height: 30vmin;
+    width: 70vmin;
+    background-color: #EBE3C1;
+    justify-content: center;
+    align-items: top;
+    padding: 1vmin;
+    color: #3D3D1B;
+    border-radius: 5px;
+    margin: 1vmin auto;
+    overflow: scroll;
+}
+
+.TextCard button {
+    height: 5vmin;
+    width: 5vmin;
+    margin-left: auto;
+    margin-bottom: auto;
+}
