@@ -9,6 +9,7 @@ import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
   const [user, setUser] = useState(getUser())
+  const [title, setTitle] = useState("")
 
   
   return (
@@ -16,8 +17,9 @@ export default function App() {
       
       {user ?
         <>
-          <NavBar user={user} setUser={setUser} />
+          <NavBar user={user} setUser={setUser} title={ title }/>
           <Routes>
+            <Route path="/" element={ <Home title={ title } setTitle={ setTitle } /> }/>
             <Route path="/textBlocks/new" element={ <NewTextBlock /> }/>
             <Route path="/textBlocks" element={ <TextBlockIndexPage /> }/>
           </Routes>

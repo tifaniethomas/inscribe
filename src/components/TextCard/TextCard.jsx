@@ -17,26 +17,23 @@ export default function TextCard({ textBlock, textBlocks, setTextBlocks, idx }) 
     //     setEditTextCard()
     // } 
 
-    const swapIdxUp = (textBlocks) => {
-        console.log(textBlocks)
+    const swapIdxUp = (idx) => {
+        console.log(textBlock)
         let idxUp = (parseInt(idx) - 1)
         const temp = textBlock[idx]
         textBlocks[idx] = textBlocks[idxUp]
         textBlocks[idxUp = temp] 
     }
 
-    const swapIdxDown = (textBlocks, idx) => {
-        let idxUp = (parseInt(idx) + 1)
-        const temp = textBlock[idx]
-        textBlocks[idx] = textBlocks[idxUp]
-        textBlocks[idxUp = temp] 
+    async function swapIdxDown (position) {
+        console.log(position)
     }
 
     return (
         <div className="TextCardFlex">
             <div className="TextCard">{ date }:&nbsp;&nbsp;&nbsp;{ textBlock.text }
             </div>
-            <button type="submit" onClick={() => swapIdxUp(`${ textBlock.idx }`)}>▲</button>
+            <button type="submit" onClick={() => swapIdxUp(`${ textBlock.position }`)}>▲</button>
             <button type="submit" onClick={() => swapIdxDown(`${ textBlock.idx }`)}>▼</button>
             <button type="submit" onClick={() => handleDelete(`${ textBlock._id }`)}>X</button>
         </div>
