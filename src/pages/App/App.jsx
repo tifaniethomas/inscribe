@@ -11,17 +11,31 @@ import NavBar from '../../components/NavBar/NavBar';
 export default function App() {
   const [user, setUser] = useState(getUser())
   const [navTitle, setNavTitle] = useState("")
+  const [navNum, setNavNum] = useState()
+  const [textBlocks, setTextBlocks] = useState([])
+  const [titles, setTitles] = useState([])
+
+
   
   return (
     <main className="App">
       
       {user ?
         <>
-          <NavBar user={user} setUser={setUser} navTitle={ navTitle }/>
+          <NavBar user={user} setUser={setUser} navTitle={ navTitle } navNum={ navNum } />
           <Routes>
-            <Route path="/" element={ <TitlePage navTitle={ navTitle } setNavTitle={ setNavTitle } /> }/>
-            <Route path="/textBlocks/new" element={ <NewTextBlock /> }/>
-            <Route path="/textBlocks" element={ <TextBlockIndexPage navTitle={ navTitle } /> }/>
+            {!navTitle ? 
+                <Route path="/" element={ <TitlePage titles={ titles } setTitles={ setTitles } 
+                navTitle={ navTitle } setNavTitle={ setNavTitle } setNavNum={ setNavNum }/>} />
+              : 
+              <>
+                <Route path="/textBlocks/new" element={ <NewTextBlock titles={ titles } navTitle={ navTitle } 
+                textBlocks={textBlocks} setTextBlocks={ setTextBlocks } navNum={ navNum } setNavNum={ setNavNum } /> }/>
+
+                <Route path="/textBlocks" element={ <TextBlockIndexPage navTitle={ navTitle } 
+                textBlocks={textBlocks} setTextBlocks={ setTextBlocks } setNavNum={ setNavNum } /> }/>
+              </>  
+            }
           </Routes>
         </>
         :

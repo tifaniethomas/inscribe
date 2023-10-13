@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as textBlocksAPI from "../../utilities/textBlocks-api"
+import * as titlesAPI from "../../utilities/titles-api"
 import './TextBlockForm.css';
+import NewTextBlock from "../../pages/NewTextBlock/NewTextBlock";
 
-export default function TextBlockForm() {
+export default function TextBlockForm({ titles, navTitle, textBlocks, setTextBlocks, setNavNum, navNum }) {
   const [newTextBlock, setNewTextBlock] = useState("")
   const navigate = useNavigate()
 
@@ -12,6 +14,9 @@ export default function TextBlockForm() {
         evt.preventDefault()
 
         try {
+            newTextBlock.title = navTitle._id
+            console.log("title: ", navTitle._id)
+            newTextBlock.position =  parseInt(navNum) + 1
             textBlocksAPI.createTextBlock(newTextBlock)
             setNewTextBlock({text: ''})
             navigate('/textBlocks')

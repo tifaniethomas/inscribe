@@ -5,6 +5,7 @@ module.exports = {
     index,
     create,
     delete: deleteTitle,
+    getId,
     // edit,
     // update
 }
@@ -42,6 +43,16 @@ async function deleteTitle(req, res) {
         res.json(title, titleTextBlocks)
     } catch (err) {
         console.log(err)
+        res.status(400).json(err)  
+    }
+}
+
+async function getId(req, res) {
+    try {
+        const title = await Title.find({"title": req.body})
+        console.log("hitting getId ", title)
+        res.json(title)
+    } catch(err) {
         res.status(400).json(err)  
     }
 }

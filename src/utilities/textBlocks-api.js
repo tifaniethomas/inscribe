@@ -2,8 +2,8 @@ import sendRequest from "./send-request";
 
 const BASE_URL = "/api/textBlocks"
 
-export function getAll(navTitle) {
-    return sendRequest(`${BASE_URL}/${navTitle}`)
+export function getAll() {
+    return sendRequest(BASE_URL)
 }
 
 export function createTextBlock(textBlock) {
@@ -12,4 +12,8 @@ export function createTextBlock(textBlock) {
 
 export function deleteTextBlock(textBlockId) {
     return sendRequest(`${BASE_URL}/${textBlockId}`, "DELETE")
+}
+
+export function updateTextBlock(textBlockId, newText) {
+    return sendRequest(`${BASE_URL}/${textBlockId}`, "POST", newText)
 }

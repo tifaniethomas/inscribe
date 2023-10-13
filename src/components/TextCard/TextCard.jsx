@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import * as textBlocksAPI from "../../utilities/textBlocks-api"
 import './TextCard.css';
 
-export default function TextCard({ textBlock, textBlocks, setTextBlocks, isEditing, setIsEditing, idx }) {
+export default function TextCard({ textBlock, textBlocks, setTextBlocks, isEditing, setIsEditing, idx, navTitle }) {
     // const [editTextBlock, setEditTextBlock] = useState([])
-    const date = new Date(textBlock.createdAt).toLocaleString()
+    // const date = new Date(textBlock.createdAt).toLocaleString()
 
     async function handleDelete(textBlockId) {
         await textBlocksAPI.deleteTextBlock(textBlockId);
@@ -25,14 +25,15 @@ export default function TextCard({ textBlock, textBlocks, setTextBlocks, isEditi
         setTextBlocks(evt.target.value)
     }
 
-    const handleBlur = () => {
+    async function handleBlur(textBlockId) {
         setIsEditing(false)
-        // save the edit
+        textBlocksAPI.updateTextBlock(textBlockId)
     }
 
     useEffect(() => {
         if (isEditing) {
-            inputRef.current.focus()
+            // inputRef.current.focus()
+            console.log("isEditing")
         }
     }, [isEditing])
 
@@ -51,22 +52,24 @@ export default function TextCard({ textBlock, textBlocks, setTextBlocks, isEditi
     return (
         <div className="TextCardFlex"> 
                 <div className="TextCard" onDoubleClick={handleDoubleClick}>
-                    {isEditing ? 
-                    <>
-                        <input
-                            type="text"
-                            value={text}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            />
-                    </> : <>
-                    { date }:&nbsp;&nbsp;&nbsp;{ textBlock.text }
-                    </>}
-                </div>
+                    { textBlock.title === navTitle ? <>
+                        {isEditing ? 
+                        <>
+                            <input 
+                                type="text"
+                                value={textBlock.text}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                />
+                        </> : <>
+                        { textBlock.text }
+                         </>
+                        } </> : <>
+                        </>
+}   </div>
             {/* <button type="submit" onClick={() => swapIdxUp(`${ textBlock.position }`)}>▲</button>
             <button type="submit" onClick={() => swapIdxDown(`${ textBlock.idx }`)}>▼</button> */}
             <button type="submit" onClick={() => handleDelete(`${ textBlock._id }`)}>X</button>
         </div>
     )
 }
-{/* <button type="submit" onClick={() => handleEdit(`${ textBlock._id, textBlock.idx }`)}></button> */}

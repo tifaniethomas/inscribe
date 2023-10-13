@@ -4,8 +4,8 @@ import TitleForm from "../../components/TitleForm/TitleForm";
 import TitleCard from '../../components/TitleCard/TitleCard';
 import * as titlesAPI from "../../utilities/titles-api"
 
-export default function TitlePage({ navTitle, setNavTitle }) {
-    const [titles, setTitles] = useState([])
+export default function TitlePage({ titles, setTitles, navTitle, setNavTitle, setNavNum }) {
+
     
     useEffect(function () {
         (async function() {
@@ -15,7 +15,7 @@ export default function TitlePage({ navTitle, setNavTitle }) {
     }, [])
 
     const titlesList = titles.map((t, idx) => 
-    <TitleCard title={t.title} setNavTitle={ setNavTitle } key={idx} />)
+    <TitleCard titleObj={ t } title={t.title} id={t.id} setNavTitle={ setNavTitle } key={idx} setNavNum={ setNavNum } />)
     
     return (
     <> 
@@ -23,12 +23,12 @@ export default function TitlePage({ navTitle, setNavTitle }) {
         {!titles ?
             <div className='Text'>
                 <p>Please enter a title to start a new document: </p>
-                <TitleForm />      
+                <TitleForm setNavTitle={ setNavTitle } setNavNum={ setNavNum } />      
             </div>
             :
             <div className='Text'>
                 <p>Please enter a title to start a new document or select one of your previous titles to work on: </p>
-                <TitleForm setNavTitle={ setNavTitle } />  
+                <TitleForm />  
                 { titlesList }
             </div>
     }

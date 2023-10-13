@@ -6,6 +6,7 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
     // used to include a data payload, set headers, etc. 
     const options = { method };
     if (payload) {
+      console.log("payload: ", payload)
       options.headers = { 'Content-Type': 'application/json' };
       options.body = JSON.stringify(payload);
     }

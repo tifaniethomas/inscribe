@@ -4,23 +4,23 @@ import TextCard from "../../components/TextCard/TextCard";
 import * as textBlocksAPI from "../../utilities/textBlocks-api"
 import { useEffect, useState } from "react"
 
-export default function TextBlockIndexPage({ navTitle }) {
-    const [textBlocks, setTextBlocks] = useState([])
+export default function TextBlockIndexPage({ navTitle, textBlocks, setTextBlocks }) {
+
     const [isEditing, setIsEditing] = useState(false)
 
     useEffect(function () {
         async function getBlocks() {
-            const allTextBlocks = await textBlocksAPI.getAll(navTitle)
+            const allTextBlocks = await textBlocksAPI.getAll()
             setTextBlocks(allTextBlocks)
         }
         getBlocks()
     }, [])
-
+console.log(textBlocks)
 
 
     const textBlocksIndex = textBlocks.map((textBlock, idx) => <TextCard 
     textBlock={ textBlock } textBlocks={ textBlocks } setTextBlocks={ setTextBlocks } key={ idx } idx={ idx } 
-    isEditing={ isEditing } setIsEditing={ setIsEditing } />)
+    isEditing={ isEditing } setIsEditing={ setIsEditing } navTitle={ navTitle.title } title={ textBlock.title } />)
     
     return(
         <div className='TextBlockIndex'>
