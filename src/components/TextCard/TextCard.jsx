@@ -1,8 +1,9 @@
 // import { useState } from "react";
+import { useEffect } from "react";
 import * as textBlocksAPI from "../../utilities/textBlocks-api"
 import './TextCard.css';
 
-export default function TextCard({ textBlock, textBlocks, setTextBlocks, idx }) {
+export default function TextCard({ textBlock, textBlocks, setTextBlocks, isEditing, setIsEditing, idx }) {
     // const [editTextBlock, setEditTextBlock] = useState([])
     const date = new Date(textBlock.createdAt).toLocaleString()
 
@@ -15,6 +16,25 @@ export default function TextCard({ textBlock, textBlocks, setTextBlocks, idx }) 
     //     await textBlocksAPI.editTextBlock(textBlockId)
     //     setEditTextCard()
     // } 
+
+    function handleDoubleClick() {
+        setIsEditing(true)
+    }
+
+    const handleChange = (evt) => {
+        setTextBlocks(evt.target.value)
+    }
+
+    const handleBlur = () => {
+        setIsEditing(false)
+        // save the edit
+    }
+
+    useEffect(() => {
+        if (isEditing) {
+            inputRef.current.focus()
+        }
+    }, [isEditing])
 
     // const swapIdxUp = (idx) => {
     //     console.log(textBlock)
@@ -29,9 +49,20 @@ export default function TextCard({ textBlock, textBlocks, setTextBlocks, idx }) 
     // }
 
     return (
-        <div className="TextCardFlex">
-            <div className="TextCard">{ date }:&nbsp;&nbsp;&nbsp;{ textBlock.text }
-            </div>
+        <div className="TextCardFlex"> 
+                <div className="TextCard" onDoubleClick={handleDoubleClick}>
+                    {isEditing ? 
+                    <>
+                        <input
+                            type="text"
+                            value={text}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            />
+                    </> : <>
+                    { date }:&nbsp;&nbsp;&nbsp;{ textBlock.text }
+                    </>}
+                </div>
             {/* <button type="submit" onClick={() => swapIdxUp(`${ textBlock.position }`)}>▲</button>
             <button type="submit" onClick={() => swapIdxDown(`${ textBlock.idx }`)}>▼</button> */}
             <button type="submit" onClick={() => handleDelete(`${ textBlock._id }`)}>X</button>

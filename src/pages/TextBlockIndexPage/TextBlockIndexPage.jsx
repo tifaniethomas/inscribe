@@ -5,8 +5,8 @@ import * as textBlocksAPI from "../../utilities/textBlocks-api"
 import { useEffect, useState } from "react"
 
 export default function TextBlockIndexPage({ navTitle }) {
-
     const [textBlocks, setTextBlocks] = useState([])
+    const [isEditing, setIsEditing] = useState(false)
 
     useEffect(function () {
         async function getBlocks() {
@@ -16,7 +16,11 @@ export default function TextBlockIndexPage({ navTitle }) {
         getBlocks()
     }, [])
 
-    const textBlocksIndex = textBlocks.map((textBlock, idx) => <TextCard textBlock={ textBlock } textBlocks={ textBlocks } setTextBlocks={ setTextBlocks } key={ idx } idx={ idx } />)
+
+
+    const textBlocksIndex = textBlocks.map((textBlock, idx) => <TextCard 
+    textBlock={ textBlock } textBlocks={ textBlocks } setTextBlocks={ setTextBlocks } key={ idx } idx={ idx } 
+    isEditing={ isEditing } setIsEditing={ setIsEditing } />)
     
     return(
         <div className='TextBlockIndex'>
