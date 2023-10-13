@@ -2,7 +2,7 @@ import './NavBar.css';
 import { Link } from "react-router-dom"
 import * as userService from '../../utilities/users-service'
 
-export default function NavBar({user, setUser}) {
+export default function NavBar({user, setUser, navTitle}) {
     function handleLogOut() {
         userService.logOut()
 
@@ -11,12 +11,13 @@ export default function NavBar({user, setUser}) {
     return (
         <nav className='NavBar'>
             <div id="links">
-                <Link to="/">Home</Link>
+                <Link to="/">Titles</Link>
                 &nbsp; | &nbsp;
-                <Link to="/textBlocks">All Text Blocks</Link>
+                <Link to="/textBlocks">Current WIP</Link>
                 &nbsp; | &nbsp;
-                <Link to="/textBlocks/new">New Text Block</Link>
+                <Link to="/textBlocks/new">Sprint</Link>
             </div>
+            <div id="title">{ navTitle }</div>
             <div id="login">
                 <span>Welome, {user.name} </span>
                 &nbsp; &nbsp;

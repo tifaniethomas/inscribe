@@ -12,6 +12,7 @@ body {
   background-color: var(--brown);
   padding: 2vmin;
   height: 100vh;
+  color: #EBE3C1;
 }
 
 .section-heading {

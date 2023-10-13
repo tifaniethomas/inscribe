@@ -2,8 +2,8 @@ import sendRequest from "./send-request";
 
 const BASE_URL = "/api/textBlocks"
 
-export function getAll() {
-    return sendRequest(BASE_URL)
+export function getAll(navTitle) {
+    return sendRequest(`${BASE_URL}/${navTitle}`)
 }
 
 export function createTextBlock(textBlock) {

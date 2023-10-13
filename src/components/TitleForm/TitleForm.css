@@ -1,0 +1,9 @@
+.TitleForm {
+    display: flex;
+    flex-direction: column; 
+    color: #EBE3C1;
+}
+
+.TitleForm input {
+    width: 80vmin;
+}

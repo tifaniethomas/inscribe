@@ -9,11 +9,11 @@ export default function TextBlockForm() {
 
   
   async function handleSubmit(evt) {
-        evt.preventDefault();
+        evt.preventDefault()
 
         try {
             textBlocksAPI.createTextBlock(newTextBlock)
-            setNewTextBlock({text: ''});
+            setNewTextBlock({text: ''})
             navigate('/textBlocks')
         }   catch (err) {
             console.log(err)
