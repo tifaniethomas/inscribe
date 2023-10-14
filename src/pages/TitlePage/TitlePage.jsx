@@ -15,7 +15,7 @@ export default function TitlePage({ titles, setTitles, navTitle, setNavTitle, se
     }, [])
 
     const titlesList = titles.map((t, idx) => 
-    <TitleCard titleObj={ t } title={t.title} id={t.id} setNavTitle={ setNavTitle } key={idx} setNavNum={ setNavNum } />)
+    <TitleCard titleObj={ t } title={t.title} id={t.id} setNavTitle={ setNavTitle } key={idx} setNavNum={ setNavNum } titles={titles} />)
     
     return (
     <> 
@@ -29,6 +29,9 @@ export default function TitlePage({ titles, setTitles, navTitle, setNavTitle, se
             <div className='Text'>
                 <p>Please enter a title to start a new document or select one of your previous titles to work on: </p>
                 <TitleForm />  
+                <br/>
+                <hr />
+                <br />
                 { titlesList }
             </div>
     }

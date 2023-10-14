@@ -29,6 +29,9 @@ export default function App() {
                 navTitle={ navTitle } setNavTitle={ setNavTitle } setNavNum={ setNavNum }/>} />
               : 
               <>
+                <Route path="/" element={ <TitlePage titles={ titles } setTitles={ setTitles } 
+                navTitle={ navTitle } setNavTitle={ setNavTitle } setNavNum={ setNavNum }/>} />
+
                 <Route path="/textBlocks/new" element={ <NewTextBlock titles={ titles } navTitle={ navTitle } 
                 textBlocks={textBlocks} setTextBlocks={ setTextBlocks } navNum={ navNum } setNavNum={ setNavNum } /> }/>
 

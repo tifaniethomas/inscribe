@@ -5,3 +5,7 @@
 .TitlePage > .Text {
     color: #EBE3C1;
 }
+
+.TitlePage hr {
+    border-top: dotted 1px #EBE3C1;
+}

@@ -13,6 +13,7 @@ export default function NavBar({user, setUser, navTitle, navNum }) {
             <div id="links">
                 {!navTitle ? 
                     <>
+                        <img src="https://i.imgur.com/Vl6Q2jt.png" alt="Inscribe Logo, a white outline of a fountain pen on a green square" />
                         <Link to="/">Titles</Link>  
                     </> : <>
                         <Link to="/">Titles</Link> 

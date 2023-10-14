@@ -1,41 +1,29 @@
 // import { useState } from "react";
-import { useEffect } from "react";
+import { useState } from "react";
 import * as textBlocksAPI from "../../utilities/textBlocks-api"
 import './TextCard.css';
 
 export default function TextCard({ textBlock, textBlocks, setTextBlocks, isEditing, setIsEditing, idx, navTitle }) {
-    // const [editTextBlock, setEditTextBlock] = useState([])
+    const [editTextBlock, setEditTextBlock] = useState({})
     // const date = new Date(textBlock.createdAt).toLocaleString()
 
     async function handleDelete(textBlockId) {
         await textBlocksAPI.deleteTextBlock(textBlockId);
-        setTextBlocks(textBlocks.filter(textBlock => textBlock._id !== textBlockId));
+        setTextBlocks(textBlocks.filter(textBlock => textBlock._id !== textBlockId))
       }
 
-    // async function handleEdit(textBlockId, textBlockIdx) {
-    //     await textBlocksAPI.editTextBlock(textBlockId)
-    //     setEditTextCard()
-    // } 
-
-    function handleDoubleClick() {
-        setIsEditing(true)
+    async function handleUpdate(textBlock) {
+        console.log("handleUpdate", { textBlock })
+        textBlocksAPI.updateTextBlock(textBlock)
     }
 
-    const handleChange = (evt) => {
-        setTextBlocks(evt.target.value)
+    function handleChange(evt) {
+        console.log("onChange", evt)
+        const updateTextBlock = { ...editTextBlock, [evt.target.name]: evt.target.value }
+        setEditTextBlock(updateTextBlock)
     }
 
-    async function handleBlur(textBlockId) {
-        setIsEditing(false)
-        textBlocksAPI.updateTextBlock(textBlockId)
-    }
 
-    useEffect(() => {
-        if (isEditing) {
-            // inputRef.current.focus()
-            console.log("isEditing")
-        }
-    }, [isEditing])
 
     // const swapIdxUp = (idx) => {
     //     console.log(textBlock)
@@ -51,25 +39,21 @@ export default function TextCard({ textBlock, textBlocks, setTextBlocks, isEditi
 
     return (
         <div className="TextCardFlex"> 
-                <div className="TextCard" onDoubleClick={handleDoubleClick}>
-                    { textBlock.title === navTitle ? <>
-                        {isEditing ? 
-                        <>
-                            <input 
+                <div >   
+                    { textBlock.title === navTitle._id ? <>
+                            <div contentEditable="true"
                                 type="text"
-                                value={textBlock.text}
+                                value={textBlock}
                                 onChange={handleChange}
-                                onBlur={handleBlur}
-                                />
-                        </> : <>
-                        { textBlock.text }
-                         </>
-                        } </> : <>
-                        </>
-}   </div>
-            {/* <button type="submit" onClick={() => swapIdxUp(`${ textBlock.position }`)}>▲</button>
-            <button type="submit" onClick={() => swapIdxDown(`${ textBlock.idx }`)}>▼</button> */}
-            <button type="submit" onClick={() => handleDelete(`${ textBlock._id }`)}>X</button>
+                                className="TextCard"
+                                >{ textBlock.text }</div></> : <></>}   
+                </div>
+                <div className="buttons">
+                    <button type="submit" onClick={() => handleDelete(`${ textBlock._id }`)}>X</button>
+                    {/* <button type="submit" onClick={() => swapIdxUp(`${ textBlock.position }`)}>▲</button>
+                    <button type="submit" onClick={() => swapIdxDown(`${ textBlock.idx }`)}>▼</button> */}
+                    <button type="submit" onClick={() => handleUpdate(`${textBlock}`)}>SAVE</button>
+                </div>
         </div>
     )
 }

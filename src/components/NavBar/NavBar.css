@@ -1,13 +1,47 @@
 .NavBar {
    display: flex;
    flex-direction: row; 
+   align-items: center;
    color: #EBE3C1;
+   background-color: #3D3D1B;
+   height: 7vmin;
+   padding: 1vmin;
+   margin: -2vmin -2vmin 1vmin -2vmin;
+   position: sticky;
+   top: 0;
 }
 
 .NavBar #login {
-    margin-left: auto;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content:right;
+    text-align: right;
+    width: 50vmin;
+}
+
+.NavBar #title {
+    margin: 0 auto;
+    font-size:xx-large;
+}
+
+.NavBar #links {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content:left;
+    text-align: left;
+    width: 50vmin;
+
 }
 
 .NavBar a {
     color: #DE9A7C;
+}
+
+.NavBar img {
+    height: 5vmin;
+    margin: 3vmin;
+    border: solid #DE9A7C;
+    border-radius: 10px;
 }

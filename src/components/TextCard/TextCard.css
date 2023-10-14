@@ -13,12 +13,16 @@
     color: #3D3D1B;
     border-radius: 5px;
     margin: 1vmin auto;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+    scrollbar-color: #3D3D1B ;
+    text-align: left;
 }
 
-.TextCardFlex button {
+.TextCardFlex .buttons {
     height: 5vmin;
-    width: 5vmin;
-    margin-right: auto;
-    margin-bottom: auto;
+    width: 10vmin;
+    display: flex;
+    flex-direction: column;
+    padding: 1vmin; 
 }
