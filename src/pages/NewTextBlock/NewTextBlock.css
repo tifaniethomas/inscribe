@@ -1,3 +1,7 @@
 .NewTextBlock {
     color: #EBE3C1;
 }
+
+.NewTextBlock button {
+    margin-bottom: 1vmin;
+}
