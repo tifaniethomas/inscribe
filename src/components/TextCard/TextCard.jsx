@@ -13,7 +13,8 @@ export default function TextCard({ textBlock, textBlocks, setTextBlocks, isEditi
       }
 
     async function handleUpdate(textBlock) {
-        console.log("handleUpdate", { textBlock })
+        // const textBlockObj = Object.fromEntries(textBlock)
+        console.log("handleUpdate", textBlock)
         textBlocksAPI.updateTextBlock(textBlock)
     }
 
@@ -52,7 +53,7 @@ export default function TextCard({ textBlock, textBlocks, setTextBlocks, isEditi
                     <button type="submit" onClick={() => handleDelete(`${ textBlock._id }`)}>X</button>
                     {/* <button type="submit" onClick={() => swapIdxUp(`${ textBlock.position }`)}>▲</button>
                     <button type="submit" onClick={() => swapIdxDown(`${ textBlock.idx }`)}>▼</button> */}
-                    <button type="submit" onClick={() => handleUpdate(`${textBlock}`)}>SAVE</button>
+                    <button type="submit" onClick={() => handleUpdate(textBlock)}>SAVE</button>
                 </div>
         </div>
     )

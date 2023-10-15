@@ -16,5 +16,5 @@ export function deleteTextBlock(textBlockId) {
 
 export function updateTextBlock(textBlock) {
     console.log(textBlock)
-    return sendRequest(`${BASE_URL}/${textBlock}`, "POST", textBlock)
+    return sendRequest(`${BASE_URL}/${textBlock._id}`, "POST", textBlock)
 }

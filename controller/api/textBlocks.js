@@ -1,3 +1,4 @@
+const textBlock = require('../../models/textBlock');
 const TextBlock = require('../../models/textBlock')
 const Title = require('../../models/title')
 const mongoose = require('mongoose')
@@ -42,10 +43,17 @@ async function deleteTextBlock(req, res) {
 }
 
 async function update (req, res) {
+    console.log("updatectrl: ", req.params._id)
     try {
-        const updateTextBlock = await TextBlock.findByIdAndUpdate(req.params.id, req.body,{ new: true });
-        res.json(updateTextBlock)
-        
+        const updateTextBlock = await TextBlock.findByIdAndUpdate(req.params._id, req.body,{ new: true })
+                if (!textBlock)
+                return next(new Error('Unable To Find TextBlock With This Id'))
+                else {
+                    textBlock.text = req.body.text
+                    textBlock.position = req.body.position
+                    textBlock.save()
+                    res.json(updateTextBlock)
+                }
     } catch (err) {
         console.log(err)
     res.status(400).json(err)}} 
