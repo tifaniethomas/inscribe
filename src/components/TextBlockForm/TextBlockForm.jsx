@@ -15,8 +15,7 @@ export default function TextBlockForm({ titles, navTitle, textBlocks, setTextBlo
 
         try {
             newTextBlock.title = navTitle._id
-            console.log("title: ", navTitle._id)
-            newTextBlock.position =  parseInt(navNum) + 1
+            newTextBlock.position =  1
             textBlocksAPI.createTextBlock(newTextBlock)
             setNewTextBlock({text: ''})
             navigate('/textBlocks')

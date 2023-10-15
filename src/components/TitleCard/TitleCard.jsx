@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import './TitleCard.css';
 
-export default function TitleCard({ title, setNavTitle, titleObj, titles }) {
+export default function TitleCard({ titleText, setNavTitle, titleObj, titles }) {
     const navigate = useNavigate()
 
     
@@ -13,6 +13,6 @@ export default function TitleCard({ title, setNavTitle, titleObj, titles }) {
         navigate('/textBlocks')
     }
     return (
-        <div className="TitleCard" onClick={() => handleClick(title)}>{ title }</div>
+        <div className="TitleCard" onClick={() => handleClick(titleText)}>{ titleText }</div>
     )
 }

@@ -17,7 +17,7 @@ export default function TextBlockIndexPage({ navTitle, textBlocks, setTextBlocks
     }, [])
     
     const titleBlocks = textBlocks.filter(t => t.title === navTitle)
-    setNavNum(textBlocks.length)
+    // setNavNum(textBlocks.length)
 
     const textBlocksIndex = textBlocks.map((textBlock, idx) => <TextCard 
     textBlock={ textBlock } textBlocks={ textBlocks } setTextBlocks={ setTextBlocks } key={ idx } idx={ idx } 

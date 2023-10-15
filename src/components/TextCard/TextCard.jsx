@@ -39,7 +39,7 @@ export default function TextCard({ textBlock, textBlocks, setTextBlocks, isEditi
     return (
         <div className="TextCardFlex"> 
                 <div >   
-                            <input
+                            <textarea
                                 name="text"
                                 type="text"
                                 value={editText}

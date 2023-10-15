@@ -25,7 +25,6 @@ export default function NavBar({user, setUser, navTitle, navNum }) {
             } 
             </div>
             <div id="title">{ navTitle.title }</div>
-            {navTitle ? <><div id="num">Blocks: { navNum }</div></> : <></>}
             <div id="login">
                 <span>Welcome, {user.name} </span>
                 &nbsp; &nbsp;

@@ -10,7 +10,7 @@ import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
   const [user, setUser] = useState(getUser())
-  const [navTitle, setNavTitle] = useState("")
+  const [navTitle, setNavTitle] = useState({})
   const [navNum, setNavNum] = useState()
   const [textBlocks, setTextBlocks] = useState([])
   const [titles, setTitles] = useState([])
