@@ -14,6 +14,11 @@ export default function NewTextBlock({ titles, navTitle, textBlocks, setTextBloc
         console.log(evt.target.value)
         setMinutes(evt.target.value)
     }
+
+    function handleSprintButton(evt) {
+        evt.preventDefault()
+        setSprint(false)
+    }
     
     return (
     <> 
@@ -22,7 +27,7 @@ export default function NewTextBlock({ titles, navTitle, textBlocks, setTextBloc
         <button type="submit" value="1800" onClick={handleClick}>30 Minutes</button> : 
             <>
                 <CountdownTimer minutes={minutes} />
-                <button type="submit" onClick={(e) => {e.preventDefault; setSprint(false)}}>Sprint Again?</button>
+                <button type="submit" onClick={handleSprintButton}>Sprint Again?</button>
             </>
         }
         </div>
