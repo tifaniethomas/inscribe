@@ -25,9 +25,9 @@ export default function NavBar({user, setUser, navTitle, navNum }) {
             } 
             </div>
             <div id="title">{ navTitle.title }</div>
-            {navTitle ? <><div id="num">{ navNum }</div></> : <></>}
+            {navTitle ? <><div id="num">Blocks: { navNum }</div></> : <></>}
             <div id="login">
-                <span>Welome, {user.name} </span>
+                <span>Welcome, {user.name} </span>
                 &nbsp; &nbsp;
                 <Link to="" onClick={ handleLogOut }>Log Out</Link>
             </div>

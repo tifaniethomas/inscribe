@@ -4,7 +4,7 @@ import * as textBlocksAPI from "../../utilities/textBlocks-api"
 import './TextCard.css';
 
 export default function TextCard({ textBlock, textBlocks, setTextBlocks, isEditing, setIsEditing, idx, navTitle }) {
-    const [editTextBlock, setEditTextBlock] = useState({})
+    const [editText, setEditText] = useState(`${textBlock.text}`)
     // const date = new Date(textBlock.createdAt).toLocaleString()
 
     async function handleDelete(textBlockId) {
@@ -12,16 +12,14 @@ export default function TextCard({ textBlock, textBlocks, setTextBlocks, isEditi
         setTextBlocks(textBlocks.filter(textBlock => textBlock._id !== textBlockId))
       }
 
-    async function handleUpdate(textBlock) {
-        // const textBlockObj = Object.fromEntries(textBlock)
-        console.log("handleUpdate", textBlock)
-        textBlocksAPI.updateTextBlock(textBlock)
+    async function handleUpdate(id, editText) {
+        console.log("handleUpdate", editText)
+        textBlocksAPI.updateTextBlock(id, editText)
     }
 
     function handleChange(evt) {
         console.log("onChange", evt)
-        const updateTextBlock = { ...editTextBlock, [evt.target.name]: evt.target.value }
-        setEditTextBlock(updateTextBlock)
+        setEditText(evt.target.value)
     }
 
 
@@ -41,19 +39,18 @@ export default function TextCard({ textBlock, textBlocks, setTextBlocks, isEditi
     return (
         <div className="TextCardFlex"> 
                 <div >   
-                    { textBlock.title === navTitle._id ? <>
-                            <div contentEditable="true"
+                            <input
+                                name="text"
                                 type="text"
-                                value={textBlock}
+                                value={editText}
                                 onChange={handleChange}
-                                className="TextCard"
-                                >{ textBlock.text }</div></> : <></>}   
+                                className="TextCard"/>
                 </div>
                 <div className="buttons">
                     <button type="submit" onClick={() => handleDelete(`${ textBlock._id }`)}>X</button>
                     {/* <button type="submit" onClick={() => swapIdxUp(`${ textBlock.position }`)}>▲</button>
                     <button type="submit" onClick={() => swapIdxDown(`${ textBlock.idx }`)}>▼</button> */}
-                    <button type="submit" onClick={() => handleUpdate(textBlock)}>SAVE</button>
+                    <button type="submit" onClick={() => handleUpdate(textBlock._id, editText)}>SAVE</button>
                 </div>
         </div>
     )

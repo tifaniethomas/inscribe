@@ -14,7 +14,7 @@ export function deleteTextBlock(textBlockId) {
     return sendRequest(`${BASE_URL}/${textBlockId}`, "DELETE")
 }
 
-export function updateTextBlock(textBlock) {
-    console.log(textBlock)
-    return sendRequest(`${BASE_URL}/${textBlock._id}`, "POST", textBlock)
+export function updateTextBlock(id, editTextBlock) {
+    console.log("textBlock in API: ", id, "editText: ", editTextBlock)
+    return sendRequest(`${BASE_URL}/${id}`, "POST", { editTextBlock })
 }
