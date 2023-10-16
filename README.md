@@ -16,7 +16,7 @@ This was very interesting to work on. I was very impressed with how much functio
 [Inscribe](https://inscribe-4b5b9833a407.herokuapp.com/) - < - _Click Here to Check it Out!_
 
 <h3>Special Thanks</h3>
-Thank you so much to Michael, Hayk, and Victor for being all the help you've given me in this course. I've grown so much in these past months and I've appreciated the opportunity to get to learn from you all. Also, huge thanks to my group of classmates who kept me company while we coded together and let me talk out any issues I ran into. This class wouldn't have been the same without you.
+Thank you so much to Michael, Hayk, and Victor for being all the help you've given me in this course. I've grown so much in these past months and I've appreciated the opportunity to get to learn from you. Also, huge thanks to my group of classmates who kept me company while we coded together and let me talk out any issues I ran into. I hope to continue the friendships we've made long past the end of this course. This class wouldn't have been the same without you.
 
 <h3>Plans for the future</h3>
 In the short term, I'd like to add the ability to edit and delete titles and buttons to re-order the textblocks. In the long-term, I'd love to add an export function that would compile all the text blocks into a .txt or .pdf file for users to be able to save locally. 
