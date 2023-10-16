@@ -1,4 +1,4 @@
-<h1>Party Chat</h1>
+<h1>Inscribe</h1>
 
 As a student in General Assembly's Software Engineering Immersive course, our final project is a MERN-stack CRUD app. I chose to make a writing program called Inscribe centered on individual text blocks that can be created within each title that's made. 
 
