@@ -7,12 +7,9 @@ I used a combination of MongoDB with Mongoose-defined Schemas, Express, and Node
 This was very interesting to work on. I was very impressed with how much functionality can be packed into the front-end with React to handle real-time changes without having to query the database. This project really stretched the limit of what I could accomplish in a week, but I'm delighted with what I've ended up with. 
 
 <h3>Technologies Used</h3>
-- MongoDB
-- Express
-- React
-- Node.js
+MongoDB, Express, React, and Node.js
 
-Deployed on Heroku
+Deployed on Heroku and styled with CSS. 
 
 
 <img src="https://i.imgur.com/18znOd4.png" width="600" height="330">
