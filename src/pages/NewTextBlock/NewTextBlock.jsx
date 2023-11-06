@@ -4,7 +4,7 @@ import TextBlockForm from "../../components/TextBlockForm/TextBlockForm";
 import CountdownTimer from '../../components/CountdownTimer/CountdownTimer';
 import { useState } from 'react';
 
-export default function NewTextBlock({ titles, navTitle, textBlocks, setTextBlocks, setNavNum, navNum }) {
+export default function NewTextBlock({ textBlocks, setTextBlocks }) {
     const [sprint, setSprint] = useState(false)
     const [minutes, setMinutes] = useState(0)
 
@@ -31,8 +31,7 @@ export default function NewTextBlock({ titles, navTitle, textBlocks, setTextBloc
             </>
         }
         </div>
-        <TextBlockForm titles={ titles } navTitle={ navTitle } textBlocks={textBlocks} setTextBlocks={ setTextBlocks } 
-        setNavNum={ setNavNum } navNum={ navNum } />
+        <TextBlockForm />
     </>
     )
 }

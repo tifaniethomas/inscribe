@@ -3,7 +3,7 @@ import { useState } from "react";
 import * as textBlocksAPI from "../../utilities/textBlocks-api"
 import './TextCard.css';
 
-export default function TextCard({ textBlock, textBlocks, setTextBlocks, isEditing, setIsEditing, idx, navTitle }) {
+export default function TextCard({ textBlock, textBlocks, setTextBlocks }) {
     const [editText, setEditText] = useState(`${textBlock.text}`)
     // const date = new Date(textBlock.createdAt).toLocaleString()
 

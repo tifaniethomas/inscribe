@@ -1,6 +1,4 @@
-const textBlock = require('../../models/textBlock');
 const TextBlock = require('../../models/textBlock')
-const Title = require('../../models/title')
 const mongoose = require('mongoose')
 
 module.exports = {

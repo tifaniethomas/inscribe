@@ -11,20 +11,13 @@ export default function NavBar({user, setUser, navTitle, navNum }) {
     return (
         <nav className='NavBar'>
             <div id="links">
-                {!navTitle ? 
-                    <>
                         <img src="https://i.imgur.com/Vl6Q2jt.png" alt="Inscribe Logo, a white outline of a fountain pen on a green square" />
-                        <Link to="/">Titles</Link>  
-                    </> : <>
-                        <Link to="/">Titles</Link> 
-                        &nbsp; | &nbsp;
+                        &nbsp;&nbsp;
                         <Link to="/textBlocks">Current WIP</Link>
                         &nbsp; | &nbsp;
                         <Link to="/textBlocks/new">Sprint</Link>
-                    </>   
-            } 
             </div>
-            <div id="title">{ navTitle.title }</div>
+            <div id="title"><h1>Inscribe</h1></div>
             <div id="login">
                 <span>Welcome, {user.name} </span>
                 &nbsp; &nbsp;
